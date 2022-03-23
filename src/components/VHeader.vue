@@ -3,7 +3,7 @@ import { MenuAlt1Icon } from "@heroicons/vue/outline";
 </script>
 
 <template>
-  <div class="navbar bg-base-100">
+  <div class="navbar bg-base-100 fixed">
     <div class="flex-1">
       <a class="btn btn-ghost normal-case text-xl">D&D Tools</a>
     </div>
