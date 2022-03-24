@@ -10,8 +10,8 @@
       />
     </figure>
     <div class="card-body items-center text-center">
-      <h2 class="card-title">Dice: D20</h2>
-      <p>Result</p>
+      <h2 class="card-title">Dice:</h2>
+      <p class="font-bold">Result: <span></span></p>
       <div class="card-actions">
         <button class="btn btn-primary">Roll</button>
       </div>
