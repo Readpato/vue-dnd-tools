@@ -11,7 +11,26 @@ function rollDie(diceType) {
   if (!diceType) return;
   if (diceType === "D20") {
     let dieResult = rolld20();
-
+    return (rollResult = dieResult);
+  }
+  if (diceType === "D12") {
+    let dieResult = rolld12();
+    return (rollResult = dieResult);
+  }
+  if (diceType === "D10") {
+    let dieResult = rolld10();
+    return (rollResult = dieResult);
+  }
+  if (diceType === "D8") {
+    let dieResult = rolld8();
+    return (rollResult = dieResult);
+  }
+  if (diceType === "D6") {
+    let dieResult = rolld6();
+    return (rollResult = dieResult);
+  }
+  if (diceType === "D4") {
+    let dieResult = rolld4();
     return (rollResult = dieResult);
   }
 }
@@ -21,7 +40,32 @@ function rolld20() {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
-  console.log(dieResult);
+  return dieResult;
+}
+function rolld12() {
+  const diceValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
+  return dieResult;
+}
+function rolld10() {
+  const diceValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
+  return dieResult;
+}
+function rolld8() {
+  const diceValue = [1, 2, 3, 4, 5, 6, 7, 8];
+  let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
+  return dieResult;
+}
+function rolld6() {
+  const diceValue = [1, 2, 3, 4, 5, 6];
+  let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
+  return dieResult;
+}
+
+function rolld4() {
+  const diceValue = [1, 2, 3, 4];
+  let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
 }
 </script>
