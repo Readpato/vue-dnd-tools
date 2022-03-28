@@ -1,10 +1,18 @@
 <script setup>
+import { computed } from "vue";
 let rollResult = $ref("Not rolled yet!");
+let previousResult = $ref(null);
 const props = defineProps({
   diceType: {
     type: String,
     default: "D20",
   },
+});
+
+const isPreviousResultNumber = computed(() => {
+  return previousResult === null || previousResult === "Not rolled yet!"
+    ? false
+    : true;
 });
 
 function rollDie(diceType) {
@@ -36,6 +44,7 @@ function rollDie(diceType) {
 }
 
 function rolld20() {
+  checkLastRoll();
   const diceValue = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
@@ -43,30 +52,43 @@ function rolld20() {
   return dieResult;
 }
 function rolld12() {
+  checkLastRoll();
   const diceValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
 }
 function rolld10() {
+  checkLastRoll();
   const diceValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
 }
 function rolld8() {
+  checkLastRoll();
   const diceValue = [1, 2, 3, 4, 5, 6, 7, 8];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
 }
 function rolld6() {
+  checkLastRoll();
   const diceValue = [1, 2, 3, 4, 5, 6];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
 }
 
 function rolld4() {
+  checkLastRoll();
   const diceValue = [1, 2, 3, 4];
   let dieResult = diceValue[Math.floor(Math.random() * diceValue.length)];
   return dieResult;
+}
+
+function checkLastRoll() {
+  if (rollResult === "Not rolled yet") {
+    return;
+  } else {
+    return (previousResult = rollResult);
+  }
 }
 </script>
 
@@ -86,6 +108,7 @@ function rolld4() {
     </figure>
     <div class="card-body items-center text-center">
       <h2 class="card-title">Dice: {{ diceType }}</h2>
+      <p v-if="isPreviousResultNumber">Last result: {{ previousResult }}</p>
       <p class="font-bold">
         Result: <span>{{ rollResult }}</span>
       </p>
