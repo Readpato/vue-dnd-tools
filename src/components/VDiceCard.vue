@@ -73,7 +73,7 @@ function rolld20() {
   if (dieResult === 20) {
     return "Natural 20!";
   } else if (dieResult === 1) {
-    return "Oh... Natural 1!";
+    return "Oh no... Natural 1!";
   } else {
     return dieResult;
   }
