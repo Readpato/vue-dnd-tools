@@ -1,6 +1,6 @@
 <script setup>
-import VDiceCard from "./VDiceCard.vue";
-import VSelectDice from "./VSelectDice.vue";
+import VDiceCard from "@/components/VDiceCard.vue";
+import VSelectDice from "@/components/VSelectDice.vue";
 
 let diceType = $ref("D20");
 
