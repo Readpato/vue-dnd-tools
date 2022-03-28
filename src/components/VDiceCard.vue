@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from "vue";
+
 let rollResult = $ref("Not rolled yet!");
 let previousResult = $ref(null);
 const props = defineProps({
