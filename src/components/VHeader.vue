@@ -5,7 +5,9 @@ import { MenuAlt1Icon } from "@heroicons/vue/outline";
 <template>
   <div class="navbar bg-base-100 fixed">
     <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">D&D Tools</a>
+      <router-link to="/" class="btn btn-ghost normal-case text-xl"
+        >D&D Tools</router-link
+      >
     </div>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-square avatar">
@@ -15,9 +17,15 @@ import { MenuAlt1Icon } from "@heroicons/vue/outline";
         tabindex="0"
         class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
       >
-        <li><a class="hover:bg-info hover:text-white">Dice Generator</a></li>
         <li>
-          <a class="hover:bg-info hover:text-white">Spell Encyclopedia</a>
+          <router-link to="/" class="hover:bg-info hover:text-white"
+            >Dice Generator</router-link
+          >
+        </li>
+        <li>
+          <router-link to="/spells" class="hover:bg-info hover:text-white"
+            >Spell Encyclopedia</router-link
+          >
         </li>
       </ul>
     </div>

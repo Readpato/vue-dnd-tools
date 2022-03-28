@@ -1,9 +1,8 @@
 <script setup>
-import VHeader from "./components/VHeader.vue";
-import VDiceView from "./components/VDiceView.vue";
+import VHeader from "@/components/VHeader.vue";
 </script>
 
 <template>
   <VHeader />
-  <VDiceView />
+  <router-view></router-view>
 </template>
