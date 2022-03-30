@@ -125,32 +125,32 @@ function setLastRoll() {
       <Icon
         v-if="showD20Icon"
         icon="mdi:dice-d20"
-        class="w-52 h-52 text-accent"
+        class="d20-svg w-52 h-52 text-accent"
       />
       <Icon
         v-if="showD12Icon"
         icon="mdi:dice-d12"
-        class="w-52 h-52 text-accent"
+        class="d12-svg w-52 h-52 text-accent"
       />
       <Icon
         v-if="showD10Icon"
         icon="mdi:dice-d10"
-        class="w-52 h-52 text-accent"
+        class="d10-svg w-52 h-52 text-accent"
       />
       <Icon
         v-if="showD8Icon"
         icon="mdi:dice-d8"
-        class="w-52 h-52 text-accent"
+        class="d8-svg w-52 h-52 text-accent"
       />
       <Icon
         v-if="showD6Icon"
         icon="mdi:dice-d6"
-        class="w-52 h-52 text-accent"
+        class="d6-svg w-52 h-52 text-accent"
       />
       <Icon
         v-if="showD4Icon"
         icon="mdi:dice-d4"
-        class="w-52 h-52 text-accent"
+        class="d4-svg w-52 h-52 text-accent"
       />
     </figure>
     <div class="card-body items-center text-center">
