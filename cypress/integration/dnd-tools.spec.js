@@ -139,5 +139,20 @@ context("D&D Tools", () => {
         expect(firstRollResult.result).to.be.equal(storedRoll);
       });
     });
+    it("Change die to D8, roll it and assess the value is stored", () => {
+      let firstRollResult = {};
+      cy.get("select").select("D8");
+      cy.get(".d10-svg").should("exist").and("be.visible");
+      cy.get(".card-title").should("exist").and("contain.text", "Dice: D8");
+      cy.get("button").click();
+      cy.get(".card-body > p:last").then((pElement) => {
+        firstRollResult.result = pElement[0].textContent.trim().split(" ")[1];
+      });
+      cy.get("button").click();
+      cy.get(".card-body > p:first").then((pElement) => {
+        let storedRoll = pElement[0].textContent.trim().split(" ")[2];
+        expect(firstRollResult.result).to.be.equal(storedRoll);
+      });
+    });
   });
 });
