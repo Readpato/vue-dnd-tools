@@ -60,7 +60,7 @@ context("D&D Tools", () => {
         .and("contain.text", "D4")
         .and("contain.value", "D4");
     });
-    it("Change die type, roll it and assess the value is stored", () => {
+    it("Change die type to D20, roll it and assess the value is stored", () => {
       let firstRoll = [];
       cy.get("select").select("D20");
       cy.get(".d20-svg").should("be.visible");
@@ -107,6 +107,21 @@ context("D&D Tools", () => {
           let secondRoll = pElement[0].textContent.split("Last result: ")[1];
           return expect(firstRoll[0]).to.equal(secondRoll);
         }
+      });
+    });
+    it("Change die to D12, roll it and assess the value is stored", () => {
+      let firstRollResult = {};
+      cy.get("select").select("D12");
+      cy.get(".d12-svg").should("exist").and("be.visible");
+      cy.get(".card-title").should("exist").and("contain.text", "Dice: D12");
+      cy.get("button").click();
+      cy.get(".card-body > p:last").then((pElement) => {
+        firstRollResult.result = pElement[0].textContent.trim().split(" ")[1];
+      });
+      cy.get("button").click();
+      cy.get(".card-body > p:first").then((pElement) => {
+        let storedRoll = pElement[0].textContent.trim().split(" ")[2];
+        expect(firstRollResult.result).to.be.equal(storedRoll);
       });
     });
   });
