@@ -60,7 +60,7 @@ context("D&D Tools", () => {
         .and("contain.text", "D4")
         .and("contain.value", "D4");
     });
-    it("Change die type to D20, roll it and assess the value is stored", () => {
+    it("Change die to D20, roll it and assess the value is stored", () => {
       let firstRoll = [];
       cy.get("select").select("D20");
       cy.get(".d20-svg").should("be.visible");
@@ -159,6 +159,21 @@ context("D&D Tools", () => {
       cy.get("select").select("D6");
       cy.get(".d6-svg").should("exist").and("be.visible");
       cy.get(".card-title").should("exist").and("contain.text", "Dice: D6");
+      cy.get("button").click();
+      cy.get(".card-body > p:last").then((pElement) => {
+        firstRollResult.result = pElement[0].textContent.trim().split(" ")[1];
+      });
+      cy.get("button").click();
+      cy.get(".card-body > p:first").then((pElement) => {
+        let storedRoll = pElement[0].textContent.trim().split(" ")[2];
+        expect(firstRollResult.result).to.be.equal(storedRoll);
+      });
+    });
+    it("Change die to D4, roll it and assess the value is stored", () => {
+      let firstRollResult = {};
+      cy.get("select").select("D4");
+      cy.get(".d4-svg").should("exist").and("be.visible");
+      cy.get(".card-title").should("exist").and("contain.text", "Dice: D4");
       cy.get("button").click();
       cy.get(".card-body > p:last").then((pElement) => {
         firstRollResult.result = pElement[0].textContent.trim().split(" ")[1];
