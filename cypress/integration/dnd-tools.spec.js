@@ -97,11 +97,9 @@ context("D&D Tools", () => {
             .split("!")[0];
           return expect(firstRoll[0]).to.equal(secondRoll);
         } else if (
-          pElement[0].textContent.trim() === "Last result: Oh no...  Natural 1!"
+          pElement[0].textContent.trim() === "Last result: Oh no... Natural 1!"
         ) {
-          let secondRoll = pElement[0].textContent
-            .split("Last result: Natural ")[1]
-            .split("!")[0];
+          let secondRoll = pElement[0].textContent.split(" ")[5].split("!")[0];
           return expect(firstRoll[0]).to.equal(secondRoll);
         } else {
           let secondRoll = pElement[0].textContent.split("Last result: ")[1];
